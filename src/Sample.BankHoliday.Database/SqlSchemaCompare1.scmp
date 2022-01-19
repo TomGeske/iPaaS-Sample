@@ -9,7 +9,7 @@
   <TargetModelProvider>
     <ProjectBasedModelProvider>
       <ProjectGuid>{bc5ef4f2-0368-4371-87b8-141160bf73ca}</ProjectGuid>
-      <Name>uc3ftsqldb</Name>
+      <Name>Sample.BankHoliday.Database</Name>
     </ProjectBasedModelProvider>
   </TargetModelProvider>
   <SchemaCompareSettingsService>
@@ -334,7 +334,7 @@
       </PropertyElementName>
       <PropertyElementName>
         <Name>TargetDatabaseName</Name>
-        <Value>uc3ftsqldb</Value>
+        <Value>Sample.BankHoliday.Database</Value>
       </PropertyElementName>
       <PropertyElementName>
         <Name>TargetConnectionString</Name>

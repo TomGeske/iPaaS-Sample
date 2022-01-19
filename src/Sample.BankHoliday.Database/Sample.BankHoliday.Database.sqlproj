@@ -125,6 +125,8 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Views\" />
     <Folder Include="Security\" />
+    <Folder Include="API_V100\" />
+    <Folder Include="API_V100\Views\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Core\Tables\X.sql">
@@ -138,6 +140,10 @@
     <Build Include="Security\Ingest.sql" />
     <Build Include="Security\Core.sql" />
     <Build Include="Security\API_V100.sql" />
+    <Build Include="API_V100\Views\X.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="SqlSchemaCompare1.scmp" />
