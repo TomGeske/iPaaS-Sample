@@ -127,12 +127,14 @@
     <Folder Include="Security\" />
     <Folder Include="API_V100\" />
     <Folder Include="API_V100\Views\" />
+    <Folder Include="BankHoliday_V100\" />
+    <Folder Include="BankHoliday_V100\Views\" />
+    <Folder Include="Core\Sequences\" />
+    <Folder Include="Core\Views\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Helper\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Core\Tables\X.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="dbo\Views\API_V100.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
@@ -144,6 +146,69 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="Core\Tables\WeekKalendarDetail.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Core\Tables\WeekKalendar.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Core\Tables\Store.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Core\Tables\PublicHolidays.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Core\Tables\OverwriteBusinessLogic.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="BankHoliday_V100\Views\StoreCalendar.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\thomasge%40microsoft.com.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Security\StockListSAP_V100.sql" />
+    <Build Include="Security\StockListMDM_V100.sql" />
+    <Build Include="Security\BankHoliday_V100.sql" />
+    <Build Include="Core\Sequences\id_sequence.sql" />
+    <Build Include="Core\Views\StoreCalendarWithPublicHolidays.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Core\Views\StoreCalendarStart.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Core\Views\StoreCalendarFinalResult.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Core\Views\StoreCalendar.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Core\Views\DayTable.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="BankHoliday_V100\Views\Store.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="BankHoliday_V100\Views\OverwriteBusinessLogic.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Helper\Stored Procedures\FillTestData.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\Helper.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SqlSchemaCompare1.scmp" />
