@@ -125,27 +125,20 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Views\" />
     <Folder Include="Security\" />
-    <Folder Include="API_V100\" />
-    <Folder Include="API_V100\Views\" />
     <Folder Include="BankHoliday_V100\" />
     <Folder Include="BankHoliday_V100\Views\" />
     <Folder Include="Core\Sequences\" />
     <Folder Include="Core\Views\" />
     <Folder Include="Helper\" />
     <Folder Include="Helper\Stored Procedures\" />
+    <Folder Include="StockListSAP_V100\" />
+    <Folder Include="StockListSAP_V100\Views\" />
+    <Folder Include="StockListMDM_V100\" />
+    <Folder Include="StockListMDM_V100\Views\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Views\API_V100.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="Security\Ingest.sql" />
     <Build Include="Security\Core.sql" />
-    <Build Include="Security\API_V100.sql" />
-    <Build Include="API_V100\Views\X.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="Core\Tables\WeekKalendarDetail.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
@@ -209,6 +202,16 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="StockListSAP_V100\Views\DiscountedProduct.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="StockListMDM_V100\Views\Product.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="Security\TraditionalUser.sql" />
+    <Build Include="Security\mi-rest-service.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SqlSchemaCompare1.scmp" />

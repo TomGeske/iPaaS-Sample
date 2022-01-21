@@ -1,5 +1,0 @@
-﻿CREATE SCHEMA [API_V100]
-    AUTHORIZATION [dbo];
-
-
-

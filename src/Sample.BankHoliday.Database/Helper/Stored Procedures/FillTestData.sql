@@ -102,6 +102,27 @@ BEGIN
    FROM [Core].[WeekKalendar]
    WHERE [WeekKalendarName] = 'Mo-Fr: 06:30-12:15, 14:00-18:30; Sa: 06:30-14:00; So: Closed; Mo-Fr: 06:30-12:30; Sa: 06:30-12:30; So: Closed'
 
+  INSERT INTO [Core].[Store]
+             ([StoreName]
+             ,[Canton]
+             ,[Streeet]
+             ,[PLZ]
+             ,[City]
+             ,[StoreType]
+             ,[WeekKalendar_Id]
+             )
+   SELECT 'Denner Discount Sulz'
+          ,'AG'
+          ,'Hauptstrasse 5'
+		  ,5085 
+		  ,'Sulz'
+		  ,'Denner Discount'
+		  ,[WeekKalendar_Id]
+   FROM [Core].[WeekKalendar]
+   WHERE [WeekKalendarName] = 'Mo-Fr: 06:30-12:15, 14:00-18:30; Sa: 06:30-14:00; So: Closed; Mo-Fr: 06:30-12:30; Sa: 06:30-12:30; So: Closed'
+
+
+
 
 DELETE FROM [Core].[PublicHoliday]
 
