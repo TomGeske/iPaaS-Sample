@@ -103,11 +103,11 @@ BEGIN
    WHERE [WeekKalendarName] = 'Mo-Fr: 06:30-12:15, 14:00-18:30; Sa: 06:30-14:00; So: Closed; Mo-Fr: 06:30-12:30; Sa: 06:30-12:30; So: Closed'
 
 
-DELETE FROM [Core].[PublicHolidays]
+DELETE FROM [Core].[PublicHoliday]
 
 
-INSERT INTO [Core].[PublicHolidays]
-           ([PublicHolidaysName]
+INSERT INTO [Core].[PublicHoliday]
+           ([PublicHolidayName]
            ,[Area]
            ,[Canton]
            ,[PLZ]
