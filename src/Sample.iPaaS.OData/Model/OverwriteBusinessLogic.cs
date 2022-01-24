@@ -2,8 +2,8 @@
 {
     public class OverwriteBusinessLogic
     {
-        public int OverwriteBusinessLogic_Id { get; set; }
-        public int Store_Id { get; set; }
+        public int OverwriteBusinessLogicId { get; set; }
+        public int StoreId { get; set; }
         public string Action { get; set; }
         public DateTime Date { get; set; }
         public string OpenHours { get; set; }
