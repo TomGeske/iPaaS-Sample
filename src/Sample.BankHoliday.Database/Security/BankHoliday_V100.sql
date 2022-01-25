@@ -8,6 +8,8 @@
 
 
 
+
+
 GO
 GRANT UPDATE
     ON SCHEMA::[BankHoliday_V100] TO [TraditionalUser];
