@@ -1,0 +1,260 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "For_each_MDM_item_": {
+                "actions": {
+                    "Append_to_array_variable": {
+                        "inputs": {
+                            "name": "productlist",
+                            "value": "@outputs('Compose_product_item')"
+                        },
+                        "runAfter": {
+                            "Compose_product_item": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "AppendToArrayVariable"
+                    },
+                    "Compose_product_item": {
+                        "inputs": {
+                            "productId": "@body('Parse_JSON_MDM_Item')?['productId']",
+                            "productPrice": "@variables('productprice')"
+                        },
+                        "runAfter": {
+                            "for_each_SAP_item": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "Compose"
+                    },
+                    "Parse_JSON_MDM_Item": {
+                        "inputs": {
+                            "content": "@items('For_each_MDM_item_')",
+                            "schema": {
+                                "properties": {
+                                    "category": {
+                                        "type": "string"
+                                    },
+                                    "listPrice": {
+                                        "type": "number"
+                                    },
+                                    "productId": {
+                                        "type": "integer"
+                                    },
+                                    "productName": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "runAfter": {},
+                        "type": "ParseJson"
+                    },
+                    "Set_variable_productprice": {
+                        "inputs": {
+                            "name": "productprice",
+                            "value": "@body('Parse_JSON_MDM_Item')?['listPrice']"
+                        },
+                        "runAfter": {
+                            "Parse_JSON_MDM_Item": [
+                                "Succeeded"
+                            ]
+                        },
+                        "type": "SetVariable"
+                    },
+                    "for_each_SAP_item": {
+                        "actions": {
+                            "Condition_product_exists": {
+                                "actions": {
+                                    "Set_variable": {
+                                        "inputs": {
+                                            "name": "productprice",
+                                            "value": "@body('Parse_JSON_SAP_Item')?['discountPrice']"
+                                        },
+                                        "runAfter": {},
+                                        "type": "SetVariable"
+                                    }
+                                },
+                                "expression": {
+                                    "and": [
+                                        {
+                                            "equals": [
+                                                "@body('Parse_JSON_SAP_Item')?['productId']",
+                                                "@body('Parse_JSON_MDM_Item')?['productId']"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "runAfter": {
+                                    "Parse_JSON_SAP_Item": [
+                                        "Succeeded"
+                                    ]
+                                },
+                                "type": "If"
+                            },
+                            "Parse_JSON_SAP_Item": {
+                                "inputs": {
+                                    "content": "@items('for_each_SAP_item')",
+                                    "schema": {
+                                        "properties": {
+                                            "discountPrice": {
+                                                "type": "number"
+                                            },
+                                            "priceValidUntil": {
+                                                "type": "string"
+                                            },
+                                            "productId": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "runAfter": {},
+                                "type": "ParseJson"
+                            }
+                        },
+                        "foreach": "@body('Parse_JSON_DiscountedProduct_SAP_Array')",
+                        "runAfter": {
+                            "Set_variable_productprice": [
+                                "Succeeded"
+                            ]
+                        },
+                        "runtimeConfiguration": {
+                            "concurrency": {
+                                "repetitions": 1
+                            }
+                        },
+                        "type": "Foreach"
+                    }
+                },
+                "foreach": "@body('Parse_JSON_Product_MDM_Array')",
+                "runAfter": {
+                    "Parse_JSON_DiscountedProduct_SAP_Array": [
+                        "Succeeded"
+                    ]
+                },
+                "runtimeConfiguration": {
+                    "concurrency": {
+                        "repetitions": 1
+                    }
+                },
+                "type": "Foreach"
+            },
+            "HTTP_DiscountedProduct_SAP": {
+                "inputs": {
+                    "headers": {
+                        "Ocp-Apim-Subscription-Key": "@parameters('Apim-Key')"
+                    },
+                    "method": "GET",
+                    "uri": "https://ipaas-retail.azure-api.net/sap/DiscountedProduct"
+                },
+                "runAfter": {
+                    "Parse_JSON_Product_MDM_Array": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            },
+            "HTTP_Product_MDM": {
+                "inputs": {
+                    "headers": {
+                        "Ocp-Apim-Subscription-Key": "@parameters('Apim-Key')"
+                    },
+                    "method": "GET",
+                    "uri": "https://ipaas-retail.azure-api.net/product/Product"
+                },
+                "runAfter": {
+                    "Initialize_variable_productprice": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Http"
+            },
+            "Initialize_variable_productlist": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "productlist",
+                            "type": "array"
+                        }
+                    ]
+                },
+                "runAfter": {},
+                "type": "InitializeVariable"
+            },
+            "Initialize_variable_productprice": {
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "productprice",
+                            "type": "float",
+                            "value": 0
+                        }
+                    ]
+                },
+                "runAfter": {
+                    "Initialize_variable_productlist": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "InitializeVariable"
+            },
+            "Parse_JSON_DiscountedProduct_SAP_Array": {
+                "inputs": {
+                    "content": "@body('HTTP_DiscountedProduct_SAP')",
+                    "schema": {
+                        "items": {},
+                        "type": "array"
+                    }
+                },
+                "runAfter": {
+                    "HTTP_DiscountedProduct_SAP": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Parse_JSON_Product_MDM_Array": {
+                "inputs": {
+                    "content": "@body('HTTP_Product_MDM')",
+                    "schema": {
+                        "items": {},
+                        "type": "array"
+                    }
+                },
+                "runAfter": {
+                    "HTTP_Product_MDM": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "ParseJson"
+            },
+            "Response": {
+                "inputs": {
+                    "body": "@variables('productlist')",
+                    "statusCode": 200
+                },
+                "kind": "http",
+                "runAfter": {
+                    "For_each_MDM_item_": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Response"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "triggers": {
+            "manual": {
+                "inputs": {},
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    },
+    "kind": "Stateful"
+}
