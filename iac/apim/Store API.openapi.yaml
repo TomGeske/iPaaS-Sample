@@ -1,0 +1,718 @@
+openapi: 3.0.1
+info:
+  title: Store API
+  version: '1.0'
+servers:
+  - url: https://ipaas-retail.azure-api.net/store
+paths:
+  /OverwriteBusinessLogic:
+    get:
+      tags:
+        - OverwriteBusinessLogic
+      summary: GetOverwriteBusinessLogic
+      operationId: GetOverwriteBusinessLogic
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.metadata=minimal:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.metadata=full:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.metadata=none:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example: <ApiOverwriteBusinessLogicGet200ApplicationXmlResponse> <overwriteBusinessLogicId>0</overwriteBusinessLogicId> <storeId>0</storeId> <action>string</action> <date>string</date> <openHours>string</openHours> <comment>string</comment> </ApiOverwriteBusinessLogicGet200ApplicationXmlResponse>
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              examples:
+                default:
+                  value: 
+            application/octet-stream:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              examples:
+                default:
+                  value: 
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OverwriteBusinessLogic'
+              example:
+                - overwriteBusinessLogicId: 0
+                  storeId: 0
+                  action: string
+                  date: string
+                  openHours: string
+                  comment: string
+  /Store:
+    get:
+      tags:
+        - Store
+      summary: GetStores
+      operationId: GetStores
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.metadata=minimal:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.metadata=full:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.metadata=none:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example: <ApiStoreGet200ApplicationXmlResponse> <storeId>0</storeId> <storeName>string</storeName> <canton>string</canton> <streeet>string</streeet> <plz>0</plz> <city>string</city> <storeType>string</storeType> <weekKalendarId>0</weekKalendarId> </ApiStoreGet200ApplicationXmlResponse>
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              examples:
+                default:
+                  value: 
+            application/octet-stream:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              examples:
+                default:
+                  value: 
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Store'
+              example:
+                - storeId: 0
+                  storeName: string
+                  canton: string
+                  streeet: string
+                  plz: 0
+                  city: string
+                  storeType: string
+                  weekKalendarId: 0
+  /StoreCalendar:
+    get:
+      tags:
+        - StoreCalendar
+      summary: GetStoreCalendar
+      operationId: GetStoreCalendar
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json;odata.metadata=minimal;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.metadata=minimal;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.metadata=minimal:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.metadata=full;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.metadata=full;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.metadata=full:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.metadata=none;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.metadata=none;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.metadata=none:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.streaming=true:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json;odata.streaming=false:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example: <ApiStoreCalendarGet200ApplicationXmlResponse> <storeId>0</storeId> <date>string</date> <opening>string</opening> <dayType>string</dayType> <reason>string</reason> <comment>string</comment> </ApiStoreCalendarGet200ApplicationXmlResponse>
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              examples:
+                default:
+                  value: 
+            application/octet-stream:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              examples:
+                default:
+                  value: 
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreCalendar'
+              example:
+                - storeId: 0
+                  date: string
+                  opening: string
+                  dayType: string
+                  reason: string
+                  comment: string
+components:
+  schemas:
+    DiscountedProduct:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int32
+          nullable: true
+        discountPrice:
+          type: number
+          format: double
+          nullable: true
+        priceValidUntil:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    OverwriteBusinessLogic:
+      type: object
+      properties:
+        overwriteBusinessLogicId:
+          type: integer
+          format: int32
+        storeId:
+          type: integer
+          format: int32
+        action:
+          type: string
+          nullable: true
+        date:
+          type: string
+          format: date-time
+        openHours:
+          type: string
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Product:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int32
+          nullable: true
+        productName:
+          type: string
+          nullable: true
+        category:
+          type: string
+          nullable: true
+        listPrice:
+          type: number
+          format: double
+          nullable: true
+      additionalProperties: false
+    Store:
+      type: object
+      properties:
+        storeId:
+          type: integer
+          format: int32
+        storeName:
+          type: string
+          nullable: true
+        canton:
+          type: string
+          nullable: true
+        streeet:
+          type: string
+          nullable: true
+        plz:
+          type: integer
+          format: int32
+        city:
+          type: string
+          nullable: true
+        storeType:
+          type: string
+          nullable: true
+        weekKalendarId:
+          type: integer
+          format: int32
+      additionalProperties: false
+    StoreCalendar:
+      type: object
+      properties:
+        storeId:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+          nullable: true
+        opening:
+          type: string
+          nullable: true
+        dayType:
+          type: string
+          nullable: true
+        reason:
+          type: string
+          nullable: true
+        comment:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

@@ -1,0 +1,41 @@
+openapi: 3.0.1
+info:
+  title: Price API
+  description: ''
+  version: '1.0'
+servers:
+  - url: https://ipaas-retail.azure-api.net/price
+paths:
+  /Product-Price:
+    get:
+      summary: Product Price
+      operationId: product-price
+      responses:
+        '200':
+          description: 
+components:
+  schemas:
+    ProductPrice:
+      type: array
+      items:
+        required:
+          - productId
+          - productPrice
+        type: object
+        properties:
+          productId:
+            type: integer
+          productPrice:
+            type: number
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
